@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Redirect Example</title>
+    <script>
+        // Check if the user is logged in
+        function checkLoginStatus() {
+            // Example condition, you might replace this with actual login check
+            let isLoggedIn = false; // Assume user is not logged in initially
+
+            // Check if there is a stored login status
+            if (localStorage.getItem('isLoggedIn')) {
+                isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            }
+
+            // If not logged in, redirect to login page
+            if (!isLoggedIn) {
+                window.location.href = 'login.html';
+            }
+        }
+
+        // Call the function when the page loads or refreshes
+        window.onload = function() {
+            checkLoginStatus();
+        };
+
+        // Listen for page refreshes and check login status again
+        window.addEventListener('beforeunload', function() {
+            localStorage.removeItem('isLoggedIn'); // Clear login status on refresh
+        });
+    </script>
+</head>
+<body>
+    <h1>Login Redirect Example</h1>
+    <p>Please wait while we check your login status...</p>
+</body>
+</html>
