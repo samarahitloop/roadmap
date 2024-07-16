@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Mermaid Chart with Scroll and Zoom</title>
+    <title>HL AI Roadmap</title>
+        <script>
+        // Check if the user is authenticated
+        if (localStorage.getItem('authenticated') !== 'true') {
+            window.location.href = 'login.html'; // Redirect to login page if not authenticated
+        }
+    </script>
     <script type="module">
         import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
         mermaid.initialize({ startOnLoad: true });
